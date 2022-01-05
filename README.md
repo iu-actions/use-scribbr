@@ -2,7 +2,7 @@
 
 [![GitHub issues](https://img.shields.io/github/issues/iu-actions/use-scribbr)](https://github.com/iu-actions/use-scribbr/issues)
 
-This action generates your bibliography with the APA-Generator from Scribbr.
+This action generates your bibliography with the [APA-Generator](https://www.scribbr.de/zitieren/apa-generator/) from Scribbr.
 
 ## Found a bug? 💁‍♀️
 
