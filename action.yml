@@ -46,6 +46,6 @@ runs:
       # up to the heading "Literaturverzeichnis" is overwritten.
       run: >-
         awk
-        -i inplace 
+        -i inplace
         '/^# Literaturverzeichnis/{p=1}p'
         scribbr/bibliography.md
