@@ -1,0 +1,46 @@
+name: Scribbr APA-Generator
+description: Generate your bibliography with the APA-Generator from Scribbr with GitHub Actions.
+
+inputs:
+  # generator details
+  bibliography:
+    description: path to the bibliography.scribbr
+    required: true
+
+outputs:
+  # output details
+  bibliography:
+    description: path to the bibliography.md
+    value: scribbr/bibliography.md
+
+runs:
+  using: "composite"
+  steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Setup Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: "16"
+    - name: Export Bibliography as Word
+      # opens scribbr using playwright.dev, uploads the backup and exports
+      # the bibliography as a word document.
+      run: npm run scribbr -- ${{ inputs.bibliography }}
+    - name: Generate Bibliography as Markdown
+      uses: docker://pandoc/core:2.9
+      with:
+        args: >-
+          --from docx
+          --to markdown
+          --output=scribbr/bibliography.md
+          scribbr/bibliography.docx
+    - name: Remove Scribbr Guide from Bibliography.
+      # scribbr contains a guide in the exported word document.
+      # in order to remove it, the entire content of the markdown file
+      # up to the heading "Literaturverzeichnis" is overwritten.
+      run: >-
+        sed
+        --quiet
+        --in-place
+        '/# Literaturverzeichnis/,$ p'
+        scribbr/bibliography.md
