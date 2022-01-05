@@ -52,4 +52,6 @@ runs:
         scribbr/bibliography.md
     - name: Debug
       shell: bash
-      run: cat scribbr/bibliography.md
+      run: | 
+        cat scribbr/bibliography.md
+        ls -R
