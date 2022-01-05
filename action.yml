@@ -23,8 +23,10 @@ runs:
       with:
         node-version: "16"
     - name: Install Dependencies
+      shell: bash
       run: npm ci
     - name: Export Bibliography as Word
+      shell: bash
       # opens scribbr using playwright.dev, uploads the backup and exports
       # the bibliography as a word document.
       run: npm run scribbr -- ${{ inputs.bibliography }}
@@ -37,6 +39,7 @@ runs:
           --output=scribbr/bibliography.md
           scribbr/bibliography.docx
     - name: Remove Scribbr Guide from Bibliography.
+      shell: bash
       # scribbr contains a guide in the exported word document.
       # in order to remove it, the entire content of the markdown file
       # up to the heading "Literaturverzeichnis" is overwritten.
