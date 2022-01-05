@@ -24,7 +24,7 @@ runs:
         node-version: "16"
     - name: Install Dependencies
       shell: bash
-      run: npm ci
+      run: cd ${{github.action_path}} && npm ci
     - name: Export Bibliography as Word
       shell: bash
       # opens scribbr using playwright.dev, uploads the backup and exports
