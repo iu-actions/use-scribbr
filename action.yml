@@ -22,6 +22,8 @@ runs:
       uses: actions/setup-node@v2
       with:
         node-version: "16"
+    - name: Install Dependencies
+      run: npm ci
     - name: Export Bibliography as Word
       # opens scribbr using playwright.dev, uploads the backup and exports
       # the bibliography as a word document.
