@@ -49,6 +49,6 @@ runs:
         -i inplace
         '/^# Literaturverzeichnis/{p=1}p'
         scribbr/bibliography.md
-    - name: Debug: Inplace Replacement
+    - name: Debug Inplace Replacement
       shell: bash
       run: cat scribbr/bibliography.md
