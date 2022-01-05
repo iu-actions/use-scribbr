@@ -11,7 +11,7 @@ outputs:
   # output details
   bibliography:
     description: path to the bibliography.md
-    value: ${{ github.workspace }}/scribbr/bibliography.md
+    value: scribbr/bibliography.md
 
 runs:
   using: "composite"
