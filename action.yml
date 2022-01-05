@@ -47,5 +47,5 @@ runs:
       run: >-
         awk
         -i inplace 
-        '/# Literaturverzeichnis/, 0'
+        '/^# Literaturverzeichnis/{p=1}p'
         scribbr/bibliography.md
