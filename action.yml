@@ -32,7 +32,7 @@ runs:
       # the bibliography as a word document.
       run: node ${{ github.action_path }}/scribbr.js ${{ inputs.bibliography }}
     - name: Generate Bibliography as Markdown
-      uses: docker://pandoc/core:2.9
+      uses: docker://pandoc/core:2.14
       with:
         args: >-
           --from docx
