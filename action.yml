@@ -11,7 +11,7 @@ outputs:
   # output details
   bibliography:
     description: path to the bibliography.md
-    value: scribbr/bibliography.md
+    value: ${{ github.workspace }}/scribbr/bibliography.md
 
 runs:
   using: "composite"
@@ -39,8 +39,9 @@ runs:
           --to markdown
           --output=scribbr/bibliography.md
           scribbr/bibliography.docx
-    - name: Debug
+    - name: Remove Scribbr Guide from Bibliography.
       shell: bash
-      run: | 
-        cat scribbr/bibliography.md
-        ls -R
+      # scribbr contains a guide in the exported word document.
+      # in order to remove it, the entire content of the markdown file
+      # up to the heading "Literaturverzeichnis" is overwritten.
+      run: echo "omit"
