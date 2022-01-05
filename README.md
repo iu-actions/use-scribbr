@@ -25,7 +25,7 @@ This action requires the presence of inputs, which are listed below.
 Below you will find an example of how you can use this action.
 
 ```yaml
-uses: iu-actions/use-scribbr@v1
+uses: iu-actions/use-scribbr@main
 id: scribbr
 with:
   # generator details
