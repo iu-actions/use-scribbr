@@ -1,10 +1,10 @@
-const { chrome } = require("playwright");
+const { chromium } = require("playwright");
 
 /**
  * Exports the bibliography as a Word document with Scribbr.
  */
 (async () => {
-	const browser = await chrome.launch({
+	const browser = await chromium.launch({
 		headless: true,
 	});
 	const context = await browser.newContext({
