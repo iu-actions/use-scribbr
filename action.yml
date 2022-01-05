@@ -44,4 +44,8 @@ runs:
       # scribbr contains a guide in the exported word document.
       # in order to remove it, the entire content of the markdown file
       # up to the heading "Literaturverzeichnis" is overwritten.
-      run: echo "omit"
+      run: >-
+        awk
+        -i inplace 
+        '/# Literaturverzeichnis/, 0'
+        scribbr/bibliography.md
