@@ -23,14 +23,16 @@ runs:
       with:
         node-version: "16"
     - name: Install Dependencies
+      working-directory: ${{ github.action_path }}
       shell: bash
-      run: cd ${{github.action_path}} && npm ci
+      run: npm ci
     - name: Export Bibliography as Word
       shell: bash
       # opens scribbr using playwright.dev, uploads the backup and exports
       # the bibliography as a word document.
-      run: npm run scribbr -- ${{ inputs.bibliography }}
+      run: node ${{ github.action_path }}/scribbr.js -- ${{ inputs.bibliography }}
     - name: Generate Bibliography as Markdown
+      working-directory: ${{ github.action_path }}
       uses: docker://pandoc/core:2.9
       with:
         args: >-
@@ -49,3 +51,6 @@ runs:
         --in-place
         '/# Literaturverzeichnis/,$ p'
         scribbr/bibliography.md
+    - name: Debug
+      shell: bash
+      run: cat scribbr/bibliography.md
