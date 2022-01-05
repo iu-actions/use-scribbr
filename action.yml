@@ -39,17 +39,6 @@ runs:
           --to markdown
           --output=scribbr/bibliography.md
           scribbr/bibliography.docx
-    - name: Remove Scribbr Guide from Bibliography.
-      shell: bash
-      # scribbr contains a guide in the exported word document.
-      # in order to remove it, the entire content of the markdown file
-      # up to the heading "Literaturverzeichnis" is overwritten.
-      run: >-
-        sed
-        --quiet
-        --in-place
-        '/# Literaturverzeichnis/,$ p'
-        scribbr/bibliography.md
     - name: Debug
       shell: bash
       run: | 
