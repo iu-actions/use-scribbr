@@ -3,9 +3,6 @@
 	"version": "1.0.0",
 	"description": "Generate your bibliography with the APA-Generator from Scribbr.",
 	"main": "scribbr.js",
-	"scripts": {
-		"scribbr": "node scribbr.js"
-	},
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/iu-actions/use-scribbr.git"
