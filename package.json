@@ -13,6 +13,6 @@
 	},
 	"homepage": "https://github.com/iu-actions/use-scribbr#readme",
 	"dependencies": {
-		"playwright": "^1.17.2"
+		"playwright": "^1.18.0"
 	}
 }
